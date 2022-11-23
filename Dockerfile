@@ -31,8 +31,8 @@ RUN \
 COPY resources/scripts/clean-layer.sh  /usr/bin/clean-layer.sh
 COPY resources/scripts/fix-permissions.sh  /usr/bin/fix-permissions.sh
 
- # Make clean-layer and fix-permissions executable
- RUN \
+# Make clean-layer and fix-permissions executable
+RUN \
     chmod a+rwx /usr/bin/clean-layer.sh && \
     chmod a+rwx /usr/bin/fix-permissions.sh
 
@@ -63,128 +63,128 @@ RUN \
     apt-get upgrade -y && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        # This is necessary for apt to access HTTPS sources:
-        apt-transport-https \
-        gnupg-agent \
-        gpg-agent \
-        gnupg2 \
-        ca-certificates \
-        build-essential \
-        pkg-config \
-        software-properties-common \
-        lsof \
-        net-tools \
-        libcurl4 \
-        curl \
-        wget \
-        cron \
-        openssl \
-        iproute2 \
-        psmisc \
-        tmux \
-        dpkg-sig \
-        uuid-dev \
-        csh \
-        xclip \
-        clinfo \
-        time \
-        libssl-dev \
-        libgdbm-dev \
-        libncurses5-dev \
-        libncursesw5-dev \
-        # required by pyenv
-        libreadline-dev \
-        libedit-dev \
-        xz-utils \
-        gawk \
-        # Simplified Wrapper and Interface Generator (5.8MB) - required by lots of py-libs
-        swig \
-        # Graphviz (graph visualization software) (4MB)
-        graphviz libgraphviz-dev \
-        # Terminal multiplexer
-        screen \
-        # Editor
-        nano \
-        # Find files
-        locate \
-        # Dev Tools
-        sqlite3 \
-        # XML Utils
-        xmlstarlet \
-        # GNU parallel
-        parallel \
-        #  R*-tree implementation - Required for earthpy, geoviews (3MB)
-        libspatialindex-dev \
-        # Search text and binary files
-        yara \
-        # Minimalistic C client for Redis
-        libhiredis-dev \
-        # postgresql client
-        libpq-dev \
-        # mysql client (10MB)
-        libmysqlclient-dev \
-        # mariadb client (7MB)
-        # libmariadbclient-dev \
-        # image processing library (6MB), required for tesseract
-        libleptonica-dev \
-        # GEOS library (3MB)
-        libgeos-dev \
-        # style sheet preprocessor
-        less \
-        # Print dir tree
-        tree \
-        # Bash autocompletion functionality
-        bash-completion \
-        # ping support
-        iputils-ping \
-        # Map remote ports to localhosM
-        socat \
-        # Json Processor
-        jq \
-        rsync \
-        # sqlite3 driver - required for pyenv
-        libsqlite3-dev \
-        # VCS:
-        git \
-        subversion \
-        jed \
-        # odbc drivers
-        unixodbc unixodbc-dev \
-        # Image support
-        libtiff-dev \
-        libjpeg-dev \
-        libpng-dev \
-        libglib2.0-0 \
-        libxext6 \
-        libsm6 \
-        libxext-dev \
-        libxrender1 \
-        libzmq3-dev \
-        # protobuffer support
-        protobuf-compiler \
-        libprotobuf-dev \
-        libprotoc-dev \
-        autoconf \
-        automake \
-        libtool \
-        cmake  \
-        fonts-liberation \
-        google-perftools \
-        # Compression Libs
-        # also install rar/unrar? but both are propriatory or unar (40MB)
-        zip \
-        gzip \
-        unzip \
-        bzip2 \
-        lzop \
-	    # deprecates bsdtar (https://ubuntu.pkgs.org/20.04/ubuntu-universe-i386/libarchive-tools_3.4.0-2ubuntu1_i386.deb.html)
-        libarchive-tools \
-        zlibc \
-        # unpack (almost) everything with one command
-        unp \
-        libbz2-dev \
-        liblzma-dev \
-        zlib1g-dev && \
+    # This is necessary for apt to access HTTPS sources:
+    apt-transport-https \
+    gnupg-agent \
+    gpg-agent \
+    gnupg2 \
+    ca-certificates \
+    build-essential \
+    pkg-config \
+    software-properties-common \
+    lsof \
+    net-tools \
+    libcurl4 \
+    curl \
+    wget \
+    cron \
+    openssl \
+    iproute2 \
+    psmisc \
+    tmux \
+    dpkg-sig \
+    uuid-dev \
+    csh \
+    xclip \
+    clinfo \
+    time \
+    libssl-dev \
+    libgdbm-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    # required by pyenv
+    libreadline-dev \
+    libedit-dev \
+    xz-utils \
+    gawk \
+    # Simplified Wrapper and Interface Generator (5.8MB) - required by lots of py-libs
+    swig \
+    # Graphviz (graph visualization software) (4MB)
+    graphviz libgraphviz-dev \
+    # Terminal multiplexer
+    screen \
+    # Editor
+    nano \
+    # Find files
+    locate \
+    # Dev Tools
+    sqlite3 \
+    # XML Utils
+    xmlstarlet \
+    # GNU parallel
+    parallel \
+    #  R*-tree implementation - Required for earthpy, geoviews (3MB)
+    libspatialindex-dev \
+    # Search text and binary files
+    yara \
+    # Minimalistic C client for Redis
+    libhiredis-dev \
+    # postgresql client
+    libpq-dev \
+    # mysql client (10MB)
+    libmysqlclient-dev \
+    # mariadb client (7MB)
+    # libmariadbclient-dev \
+    # image processing library (6MB), required for tesseract
+    libleptonica-dev \
+    # GEOS library (3MB)
+    libgeos-dev \
+    # style sheet preprocessor
+    less \
+    # Print dir tree
+    tree \
+    # Bash autocompletion functionality
+    bash-completion \
+    # ping support
+    iputils-ping \
+    # Map remote ports to localhosM
+    socat \
+    # Json Processor
+    jq \
+    rsync \
+    # sqlite3 driver - required for pyenv
+    libsqlite3-dev \
+    # VCS:
+    git \
+    subversion \
+    jed \
+    # odbc drivers
+    unixodbc unixodbc-dev \
+    # Image support
+    libtiff-dev \
+    libjpeg-dev \
+    libpng-dev \
+    libglib2.0-0 \
+    libxext6 \
+    libsm6 \
+    libxext-dev \
+    libxrender1 \
+    libzmq3-dev \
+    # protobuffer support
+    protobuf-compiler \
+    libprotobuf-dev \
+    libprotoc-dev \
+    autoconf \
+    automake \
+    libtool \
+    cmake  \
+    fonts-liberation \
+    google-perftools \
+    # Compression Libs
+    # also install rar/unrar? but both are propriatory or unar (40MB)
+    zip \
+    gzip \
+    unzip \
+    bzip2 \
+    lzop \
+    # deprecates bsdtar (https://ubuntu.pkgs.org/20.04/ubuntu-universe-i386/libarchive-tools_3.4.0-2ubuntu1_i386.deb.html)
+    libarchive-tools \
+    zlibc \
+    # unpack (almost) everything with one command
+    unp \
+    libbz2-dev \
+    liblzma-dev \
+    zlib1g-dev && \
     # Update git to newest version
     add-apt-repository -y ppa:git-core/ppa  && \
     apt-get update && \
@@ -206,13 +206,13 @@ RUN wget --no-verbose https://github.com/krallin/tini/releases/download/v0.19.0/
 RUN \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        openssh-client \
-        openssh-server \
-        # SSLH for SSH + HTTP(s) Multiplexing
-        sslh \
-        # SSH Tooling
-        autossh \
-        mussh && \
+    openssh-client \
+    openssh-server \
+    # SSLH for SSH + HTTP(s) Multiplexing
+    sslh \
+    # SSH Tooling
+    autossh \
+    mussh && \
     chmod go-w $HOME && \
     mkdir -p $HOME/.ssh/ && \
     # create empty config file if not exists
@@ -318,7 +318,7 @@ ENV LD_LIBRARY_PATH=$CONDA_ROOT/lib
 RUN git clone https://github.com/pyenv/pyenv.git $RESOURCES_PATH/.pyenv && \
     # Install pyenv plugins based on pyenv installer
     git clone https://github.com/pyenv/pyenv-virtualenv.git $RESOURCES_PATH/.pyenv/plugins/pyenv-virtualenv  && \
-    git clone git://github.com/pyenv/pyenv-doctor.git $RESOURCES_PATH/.pyenv/plugins/pyenv-doctor && \
+    git clone https://github.com/pyenv/pyenv-doctor.git $RESOURCES_PATH/.pyenv/plugins/pyenv-doctor && \
     git clone https://github.com/pyenv/pyenv-update.git $RESOURCES_PATH/.pyenv/plugins/pyenv-update && \
     git clone https://github.com/pyenv/pyenv-which-ext.git $RESOURCES_PATH/.pyenv/plugins/pyenv-which-ext && \
     apt-get update && \
@@ -523,7 +523,7 @@ COPY resources/tools/vs-code-desktop.sh $RESOURCES_PATH/tools/vs-code-desktop.sh
 RUN \
     # If minimal flavor - do not install
     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        exit 0 ; \
+    exit 0 ; \
     fi && \
     /bin/bash $RESOURCES_PATH/tools/vs-code-desktop.sh --install && \
     # Cleanup
@@ -536,7 +536,7 @@ COPY resources/tools/firefox.sh $RESOURCES_PATH/tools/firefox.sh
 RUN \
     # If minimal flavor - do not install
     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        exit 0 ; \
+    exit 0 ; \
     fi && \
     /bin/bash $RESOURCES_PATH/tools/firefox.sh --install && \
     # Cleanup
@@ -564,49 +564,49 @@ RUN \
     pip install --upgrade pip && \
     # If minimal flavor - install
     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        # Install nomkl - mkl needs lots of space
-        conda install -y --update-all 'python='$PYTHON_VERSION nomkl ; \
+    # Install nomkl - mkl needs lots of space
+    conda install -y --update-all 'python='$PYTHON_VERSION nomkl ; \
     else \
-        # Install mkl for faster computations
-        conda install -y --update-all 'python='$PYTHON_VERSION mkl-service mkl ; \
+    # Install mkl for faster computations
+    conda install -y --update-all 'python='$PYTHON_VERSION mkl-service mkl ; \
     fi && \
     # Install some basics - required to run container
     conda install -y --update-all \
-            'python='$PYTHON_VERSION \
-            'ipython=7.24.*' \
-            'notebook=6.4.*' \
-            'jupyterlab=3.0.*' \
-            # TODO: nbconvert 6.x makes problems with template_path
-            'nbconvert=5.6.*' \
-            # TODO: temp fix: yarl version 1.5 is required for lots of libraries.
-            'yarl==1.5.*' \
-            # TODO install scipy, numpy, sklearn, and numexpr via conda for mkl optimizaed versions: https://docs.anaconda.com/mkl-optimizations/
-            'scipy==1.7.*' \
-            'numpy==1.19.*' \
-            scikit-learn \
-            numexpr && \
-            # installed via apt-get and pip: protobuf \
-            # installed via apt-get: zlib  && \
+    'python='$PYTHON_VERSION \
+    'ipython=7.24.*' \
+    'notebook=6.4.*' \
+    'jupyterlab=3.0.*' \
+    # TODO: nbconvert 6.x makes problems with template_path
+    'nbconvert=5.6.*' \
+    # TODO: temp fix: yarl version 1.5 is required for lots of libraries.
+    'yarl==1.5.*' \
+    # TODO install scipy, numpy, sklearn, and numexpr via conda for mkl optimizaed versions: https://docs.anaconda.com/mkl-optimizations/
+    'scipy==1.7.*' \
+    'numpy==1.19.*' \
+    scikit-learn \
+    numexpr && \
+    # installed via apt-get and pip: protobuf \
+    # installed via apt-get: zlib  && \
     # Switch of channel priority, makes some trouble
     conda config --system --set channel_priority false && \
     # Install minimal pip requirements
     pip install --no-cache-dir --upgrade --upgrade-strategy only-if-needed -r ${RESOURCES_PATH}/libraries/requirements-minimal.txt && \
     # If minimal flavor - exit here
     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        # Remove pandoc - package for markdown conversion - not needed
-        # TODO: conda remove -y --force pandoc && \
-        # Fix permissions
-        fix-permissions.sh $CONDA_ROOT && \
-        # Cleanup
-        clean-layer.sh && \
-        exit 0 ; \
+    # Remove pandoc - package for markdown conversion - not needed
+    # TODO: conda remove -y --force pandoc && \
+    # Fix permissions
+    fix-permissions.sh $CONDA_ROOT && \
+    # Cleanup
+    clean-layer.sh && \
+    exit 0 ; \
     fi && \
     # OpenMPI support
     apt-get install -y --no-install-recommends libopenmpi-dev openmpi-bin && \
     conda install -y --freeze-installed  \
-        'python='$PYTHON_VERSION \
-        boost \
-        mkl-include && \
+    'python='$PYTHON_VERSION \
+    boost \
+    mkl-include && \
     # Install mkldnn
     conda install -y --freeze-installed -c mingfeima mkldnn && \
     # Install pytorch - cpu only
@@ -615,11 +615,11 @@ RUN \
     pip install --no-cache-dir --upgrade --upgrade-strategy only-if-needed -r ${RESOURCES_PATH}/libraries/requirements-light.txt && \
     # If light light flavor - exit here
     if [ "$WORKSPACE_FLAVOR" = "light" ]; then \
-        # Fix permissions
-        fix-permissions.sh $CONDA_ROOT && \
-        # Cleanup
-        clean-layer.sh && \
-        exit 0 ; \
+    # Fix permissions
+    fix-permissions.sh $CONDA_ROOT && \
+    # Cleanup
+    clean-layer.sh && \
+    exit 0 ; \
     fi && \
     # libartals == 40MB liblapack-dev == 20 MB
     apt-get install -y --no-install-recommends liblapack-dev libatlas-base-dev libeigen3-dev libblas-dev && \
@@ -682,141 +682,141 @@ RUN \
     # Create empty notebook configuration
     mkdir -p $HOME/.jupyter/nbconfig/ && \
     printf "{\"load_extensions\": {}}" > $HOME/.jupyter/nbconfig/notebook.json && \
-    # Activate and configure extensions
-    jupyter contrib nbextension install --sys-prefix && \
-    # nbextensions configurator
-    jupyter nbextensions_configurator enable --sys-prefix && \
-    # Configure nbdime
-    nbdime config-git --enable --global && \
-    # Activate Jupytext
-    jupyter nbextension enable --py jupytext --sys-prefix && \
-    # Enable useful extensions
-    jupyter nbextension enable skip-traceback/main --sys-prefix && \
-    # jupyter nbextension enable comment-uncomment/main && \
-    jupyter nbextension enable toc2/main --sys-prefix && \
-    jupyter nbextension enable execute_time/ExecuteTime --sys-prefix && \
-    jupyter nbextension enable collapsible_headings/main --sys-prefix && \
-    jupyter nbextension enable codefolding/main --sys-prefix && \
-    # Disable pydeck extension, cannot be loaded (404)
-    jupyter nbextension disable pydeck/extension && \
-    # Install and activate Jupyter Tensorboard
-    pip install --no-cache-dir git+https://github.com/InfuseAI/jupyter_tensorboard.git && \
-    jupyter tensorboard enable --sys-prefix && \
-    # TODO moved to configuration files = resources/jupyter/nbconfig Edit notebook config
-    # echo '{"nbext_hide_incompat": false}' > $HOME/.jupyter/nbconfig/common.json && \
-    cat $HOME/.jupyter/nbconfig/notebook.json | jq '.toc2={"moveMenuLeft": false,"widenNotebook": false,"skip_h1_title": false,"sideBar": true,"number_sections": false,"collapse_to_match_collapsible_headings": true}' > tmp.$$.json && mv tmp.$$.json $HOME/.jupyter/nbconfig/notebook.json && \
-    # If minimal flavor - exit here
-    if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        # Cleanup
-        clean-layer.sh && \
-        exit 0 ; \
-    fi && \
-    # TODO: Not installed. Disable Jupyter Server Proxy
-    # jupyter nbextension disable jupyter_server_proxy/tree --sys-prefix && \
-    # Install jupyter black
-    jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix && \
-    jupyter nbextension enable jupyter-black-master/jupyter-black --sys-prefix && \
-    # If light flavor - exit here
-    if [ "$WORKSPACE_FLAVOR" = "light" ]; then \
-        # Cleanup
-        clean-layer.sh && \
-        exit 0 ; \
-    fi && \
-    # Install and activate what if tool
-    pip install witwidget && \
-    jupyter nbextension install --py --symlink --sys-prefix witwidget && \
-    jupyter nbextension enable --py --sys-prefix witwidget && \
-    # Activate qgrid
-    jupyter nbextension enable --py --sys-prefix qgrid && \
-    # TODO: Activate Colab support
-    # jupyter serverextension enable --py jupyter_http_over_ws && \
-    # Activate Voila Rendering
-    # currently not working jupyter serverextension enable voila --sys-prefix && \
-    # Enable ipclusters
-    ipcluster nbextension enable && \
-    # Fix permissions? fix-permissions.sh $CONDA_ROOT && \
-    # Cleanup
+#     # Activate and configure extensions
+#     jupyter contrib nbextension install --sys-prefix && \
+#     # nbextensions configurator
+#     jupyter nbextensions_configurator enable --sys-prefix && \
+#     # Configure nbdime
+#     nbdime config-git --enable --global && \
+#     # Activate Jupytext
+#     jupyter nbextension enable --py jupytext --sys-prefix && \
+#     # Enable useful extensions
+#     jupyter nbextension enable skip-traceback/main --sys-prefix && \
+#     # jupyter nbextension enable comment-uncomment/main && \
+#     jupyter nbextension enable toc2/main --sys-prefix && \
+#     jupyter nbextension enable execute_time/ExecuteTime --sys-prefix && \
+#     jupyter nbextension enable collapsible_headings/main --sys-prefix && \
+#     jupyter nbextension enable codefolding/main --sys-prefix && \
+#     # Disable pydeck extension, cannot be loaded (404)
+#     jupyter nbextension disable pydeck/extension && \
+#     # Install and activate Jupyter Tensorboard
+#     pip install --no-cache-dir git+https://github.com/InfuseAI/jupyter_tensorboard.git && \
+#     jupyter tensorboard enable --sys-prefix && \
+#     # TODO moved to configuration files = resources/jupyter/nbconfig Edit notebook config
+#     # echo '{"nbext_hide_incompat": false}' > $HOME/.jupyter/nbconfig/common.json && \
+#     cat $HOME/.jupyter/nbconfig/notebook.json | jq '.toc2={"moveMenuLeft": false,"widenNotebook": false,"skip_h1_title": false,"sideBar": true,"number_sections": false,"collapse_to_match_collapsible_headings": true}' > tmp.$$.json && mv tmp.$$.json $HOME/.jupyter/nbconfig/notebook.json && \
+#     # # If minimal flavor - exit here
+#     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
+#     # Cleanup
+#     clean-layer.sh && \
+#     exit 0 ; \
+#     fi && \
+#     # TODO: Not installed. Disable Jupyter Server Proxy
+#     # jupyter nbextension disable jupyter_server_proxy/tree --sys-prefix && \
+#     # Install jupyter black
+#     jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --user && \
+#     jupyter nbextension enable jupyter-black-master/jupyter-black && \
+#     # If light flavor - exit here
+#     if [ "$WORKSPACE_FLAVOR" = "light" ]; then \
+#     # Cleanup
+#     clean-layer.sh && \
+#     exit 0 ; \
+#     fi && \
+#     # Install and activate what if tool
+#     pip install witwidget && \
+#     jupyter nbextension install --py --symlink --sys-prefix witwidget && \
+#     jupyter nbextension enable --py --sys-prefix witwidget && \
+#     # Activate qgrid
+#     jupyter nbextension enable --py --sys-prefix qgrid && \
+#     # TODO: Activate Colab support
+#     # jupyter serverextension enable --py jupyter_http_over_ws && \
+#     # Activate Voila Rendering
+#     # currently not working jupyter serverextension enable voila --sys-prefix && \
+#     # Enable ipclusters
+#     ipcluster nbextension enable && \
+#     # Fix permissions? fix-permissions.sh $CONDA_ROOT && \
+#     # Cleanup
     clean-layer.sh
 
 # install jupyterlab
-RUN \
-    # without es6-promise some extension builds fail
-    npm install -g es6-promise && \
-    # define alias command for jupyterlab extension installs with log prints to stdout
-    jupyter lab build && \
-    lab_ext_install='jupyter labextension install -y --debug-log-path=/dev/stdout --log-level=WARN --minimize=False --no-build' && \
-    # jupyterlab installed in requirements section
-    $lab_ext_install @jupyter-widgets/jupyterlab-manager && \
-    # If minimal flavor - do not install jupyterlab extensions
-    if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        # Final build with minimization
-        jupyter lab build -y --debug-log-path=/dev/stdout --log-level=WARN && \
-        # Cleanup
-        jupyter lab clean && \
-        jlpm cache clean && \
-        rm -rf $CONDA_ROOT/share/jupyter/lab/staging && \
-        clean-layer.sh && \
-        exit 0 ; \
-    fi && \
-    $lab_ext_install @jupyterlab/toc && \
-    # install temporarily from gitrepo due to the issue that jupyterlab_tensorboard does not work with 3.x yet as described here: https://github.com/chaoleili/jupyterlab_tensorboard/issues/28#issuecomment-783594541
-    #$lab_ext_install jupyterlab_tensorboard && \
-    pip install git+https://github.com/chaoleili/jupyterlab_tensorboard.git && \
-    # install jupyterlab git
-    # $lab_ext_install @jupyterlab/git && \
-    pip install jupyterlab-git && \
-    # jupyter serverextension enable --py jupyterlab_git && \
-    # For Matplotlib: https://github.com/matplotlib/jupyter-matplotlib
-    #$lab_ext_install jupyter-matplotlib && \
-    # Do not install any other jupyterlab extensions
-    if [ "$WORKSPACE_FLAVOR" = "light" ]; then \
-        # Final build with minimization
-        jupyter lab build -y --debug-log-path=/dev/stdout --log-level=WARN && \
-        # Cleanup
-        jupyter lab clean && \
-        jlpm cache clean && \
-        rm -rf $CONDA_ROOT/share/jupyter/lab/staging && \
-        clean-layer.sh && \
-        exit 0 ; \
-    fi \
-    # Install jupyterlab language server support
-    && pip install jupyterlab-lsp==3.7.0 jupyter-lsp==1.3.0 && \
-    # $lab_ext_install install @krassowski/jupyterlab-lsp@2.0.8 && \
-    # For Plotly
-    $lab_ext_install jupyterlab-plotly && \
-    $lab_ext_install install @jupyter-widgets/jupyterlab-manager plotlywidget && \
-    # produces build error: jupyter labextension install jupyterlab-chart-editor && \
-    $lab_ext_install jupyterlab-chart-editor && \
-    # Install jupyterlab variable inspector - https://github.com/lckr/jupyterlab-variableInspector
-    pip install lckr-jupyterlab-variableinspector && \
-    # For holoview
-    # TODO: pyviz is not yet supported by the current JupyterLab version
-    #     $lab_ext_install @pyviz/jupyterlab_pyviz && \
-    # Install Debugger in Jupyter Lab
-    # pip install --no-cache-dir xeus-python && \
-    # $lab_ext_install @jupyterlab/debugger && \
-    # Install jupyterlab code formattor - https://github.com/ryantam626/jupyterlab_code_formatter
-    $lab_ext_install @ryantam626/jupyterlab_code_formatter && \
-    pip install jupyterlab_code_formatter && \
-    jupyter serverextension enable --py jupyterlab_code_formatter \
-    # Final build with minimization
-    && jupyter lab build -y --debug-log-path=/dev/stdout --log-level=WARN && \
-    jupyter lab build && \
-    # Cleanup
-    # Clean jupyter lab cache: https://github.com/jupyterlab/jupyterlab/issues/4930
-    jupyter lab clean && \
-    jlpm cache clean && \
-    # Remove build folder -> should be remove by lab clean as well?
-    rm -rf $CONDA_ROOT/share/jupyter/lab/staging && \
-    clean-layer.sh
+# RUN \
+#     # without es6-promise some extension builds fail
+#     npm install -g es6-promise && \
+#     # define alias command for jupyterlab extension installs with log prints to stdout
+#     jupyter lab build && \
+#     lab_ext_install='jupyter labextension install -y --debug-log-path=/dev/stdout --log-level=WARN --minimize=False --no-build' && \
+#     # jupyterlab installed in requirements section
+#     $lab_ext_install @jupyter-widgets/jupyterlab-manager && \
+#     # If minimal flavor - do not install jupyterlab extensions
+#     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
+#     # Final build with minimization
+#     jupyter lab build -y --debug-log-path=/dev/stdout --log-level=WARN && \
+#     # Cleanup
+#     jupyter lab clean && \
+#     jlpm cache clean && \
+#     rm -rf $CONDA_ROOT/share/jupyter/lab/staging && \
+#     clean-layer.sh && \
+#     exit 0 ; \
+#     fi && \
+#     $lab_ext_install @jupyterlab/toc && \
+#     # install temporarily from gitrepo due to the issue that jupyterlab_tensorboard does not work with 3.x yet as described here: https://github.com/chaoleili/jupyterlab_tensorboard/issues/28#issuecomment-783594541
+#     $lab_ext_install jupyterlab_tensorboard && \
+#     # pip install git+https://github.com/chaoleili/jupyterlab_tensorboard.git && \
+#     # install jupyterlab git
+#     # $lab_ext_install @jupyterlab/git && \
+#     pip install jupyterlab-git && \
+#     jupyter serverextension enable --py jupyterlab_git && \
+#     # For Matplotlib: https://github.com/matplotlib/jupyter-matplotlib
+#     $lab_ext_install jupyter-matplotlib && \
+#     # Do not install any other jupyterlab extensions
+#     if [ "$WORKSPACE_FLAVOR" = "light" ]; then \
+#     # Final build with minimization
+#     jupyter lab build -y --debug-log-path=/dev/stdout --log-level=WARN && \
+#     # Cleanup
+#     jupyter lab clean && \
+#     jlpm cache clean && \
+#     rm -rf $CONDA_ROOT/share/jupyter/lab/staging && \
+#     clean-layer.sh && \
+#     exit 0 ; \
+#     fi \
+#     # Install jupyterlab language server support
+#     && pip install jupyterlab-lsp==3.7.0 jupyter-lsp==1.3.0 && \
+#     # $lab_ext_install install @krassowski/jupyterlab-lsp@2.0.8 && \
+#     # For Plotly
+#     $lab_ext_install jupyterlab-plotly && \
+#     $lab_ext_install install @jupyter-widgets/jupyterlab-manager plotlywidget && \
+#     # produces build error: jupyter labextension install jupyterlab-chart-editor && \
+#     $lab_ext_install jupyterlab-chart-editor && \
+#     # Install jupyterlab variable inspector - https://github.com/lckr/jupyterlab-variableInspector
+#     pip install lckr-jupyterlab-variableinspector && \
+#     # For holoview
+#     # TODO: pyviz is not yet supported by the current JupyterLab version
+#     #     $lab_ext_install @pyviz/jupyterlab_pyviz && \
+#     # Install Debugger in Jupyter Lab
+#     # pip install --no-cache-dir xeus-python && \
+#     # $lab_ext_install @jupyterlab/debugger && \
+#     # Install jupyterlab code formattor - https://github.com/ryantam626/jupyterlab_code_formatter
+#     $lab_ext_install @ryantam626/jupyterlab_code_formatter && \
+#     pip install jupyterlab_code_formatter && \
+#     jupyter serverextension enable --py jupyterlab_code_formatter \
+#     # Final build with minimization
+#     && jupyter lab build -y --debug-log-path=/dev/stdout --log-level=WARN && \
+#     jupyter lab build && \
+#     # Cleanup
+#     # Clean jupyter lab cache: https://github.com/jupyterlab/jupyterlab/issues/4930
+#     jupyter lab clean && \
+#     jlpm cache clean && \
+#     # Remove build folder -> should be remove by lab clean as well?
+#     rm -rf $CONDA_ROOT/share/jupyter/lab/staging && \
+#     clean-layer.sh
 
-# Install Jupyter Tooling Extension
-COPY resources/jupyter/extensions $RESOURCES_PATH/jupyter-extensions
+# # Install Jupyter Tooling Extension
+# COPY resources/jupyter/extensions $RESOURCES_PATH/jupyter-extensions
 
-RUN \
-    pip install --no-cache-dir $RESOURCES_PATH/jupyter-extensions/tooling-extension/ && \
-    # Cleanup
-    clean-layer.sh
+# RUN \
+#     pip install --no-cache-dir $RESOURCES_PATH/jupyter-extensions/tooling-extension/ && \
+#     # Cleanup
+#     clean-layer.sh
 
 # Install and activate ZSH
 COPY resources/tools/oh-my-zsh.sh $RESOURCES_PATH/tools/oh-my-zsh.sh
@@ -852,7 +852,7 @@ RUN \
     SLEEP_TIMER=25 && \
     # If minimal flavor -> exit here
     if [ "$WORKSPACE_FLAVOR" = "minimal" ]; then \
-        exit 0 ; \
+    exit 0 ; \
     fi && \
     cd $RESOURCES_PATH && \
     mkdir -p $HOME/.vscode/extensions/ && \
@@ -873,7 +873,7 @@ RUN \
     sleep $SLEEP_TIMER && \
     # If light flavor -> exit here
     if [ "$WORKSPACE_FLAVOR" = "light" ]; then \
-        exit 0 ; \
+    exit 0 ; \
     fi && \
     # Install prettie: https://github.com/prettier/prettier-vscode/releases
     PRETTIER_VERSION="6.4.0" && \
@@ -922,9 +922,9 @@ RUN \
     # apt-get install -y mysql-server && \
     # If minimal or light flavor -> exit here
     if [ "$WORKSPACE_FLAVOR" = "minimal" ] || [ "$WORKSPACE_FLAVOR" = "light" ]; then \
-        # Cleanup
-        clean-layer.sh  && \
-        exit 0 ; \
+    # Cleanup
+    clean-layer.sh  && \
+    exit 0 ; \
     fi && \
     # Install fkill-cli program  TODO: 30MB, remove?
     # npm install --global fkill-cli && \

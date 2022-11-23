@@ -62,7 +62,7 @@ fuzzywuzzy==0.18.0
 gensim==4.0.1
 geocoder==1.38.1
 geojson==2.5.0
-geoplotlib==0.3.2
+# geoplotlib==0.3.2
 geopy==2.1.0
 gluoncv==0.10.3
 gluonnlp==0.10.0

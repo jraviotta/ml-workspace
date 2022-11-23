@@ -34,7 +34,12 @@ build-nc: ## Build the container without caching
 	docker build --no-cache -t $(APP_NAME) .
 
 run: ## Run container on port configured in `config.env`
-	docker run -i -t --rm --env-file=./config.env -p=$(PORT):$(PORT) --name="$(APP_NAME)" $(APP_NAME)
+	docker run -d --env-file=./config.env -p=$(PORT):$(PORT) \
+	--name="$(APP_NAME)" $(APP_NAME) \
+	-v "${VOLUME}:/workspace" \
+	--shm-size 1024m \
+    --restart always \
+	${CONTAINER}
 
 
 up: build run ## Run container on port configured in `config.env` (Alias to run)
@@ -85,3 +90,17 @@ repo-login: ## Auto login to AWS-ECR unsing aws-cli
 version: ## Output the current version
 	@echo $(VERSION)
 	
+#vars
+IMAGENAME=my_kubectl
+REPO=my.registry
+IMAGEFULLNAME=${REPO}/${IMAGENAME}:${KUBECTL_VERSION}
+
+
+
+build:
+	    @docker build --pull --build-arg ALP_VER=${alpver} --build-arg KCTL_VER=${kctlver} -t ${IMAGEFULLNAME} .
+
+push:
+	    @docker push ${IMAGEFULLNAME}
+
+all: build push
