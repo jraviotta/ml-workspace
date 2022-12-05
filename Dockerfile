@@ -1170,11 +1170,11 @@ ENTRYPOINT ["/tini", "-g", "--"]
 
 CMD ["python", "/resources/docker-entrypoint.py"]
 
-# Port 8080 is the main access port (also includes SSH)
+# PORT specified in config.env is the main access port (also includes SSH)
 # Port 5091 is the VNC port
 # Port 3389 is the RDP port
 # Port 8090 is the Jupyter Notebook Server
 # See supervisor.conf for more ports
 
-EXPOSE 8080
+EXPOSE $PORT
 ###
