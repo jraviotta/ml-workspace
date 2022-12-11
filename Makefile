@@ -55,7 +55,7 @@ help: ## This help.
 # special chars: '',"",|,&&,||,*,^,[], should all work. Except "$" and "`", if someone knows how, please let me know!).
 # escaping (\) does work on most chars, except double quotes (if someone knows how, please let me know)
 # i.e. works on most cases. For everything else perhaps more useful to upload a script and execute that.
-shell:
+shell: ## some kind of unknown magic
 ifeq ($(CMD_ARGUMENTS),)
 	# no command is given, default to shell
 	docker-compose -p $(PROJECT_NAME)_$(HOST_UID) run --rm $(SERVICE_TARGET) sh
@@ -65,11 +65,11 @@ else
 endif
 ######### DOCKER TASKS ###########
 .PHONY: build
-build: # Build the container
+build: ## Build the container
 	@docker build --tag ${DOCKER_USERNAME}/${PROJECT_NAME}:${GIT_HASH} .
 
 .PHONY: rebuild
-rebuild: # force a rebuild by passing --no-cache
+rebuild: ## force a rebuild by passing --no-cache
 	@docker build --no-cache -t ${DOCKER_USERNAME}/${PROJECT_NAME}:${GIT_HASH} .
 
 .PHONY: pull
@@ -84,19 +84,18 @@ push:
 	@docker tag  ${DOCKER_USERNAME}/${PROJECT_NAME}:${GIT_HASH} ${DOCKER_USERNAME}/${PROJECT_NAME}:latest
 
 .PHONY: release
-release: pull tag-latest push
+release: pull tag-latest push ## pulls image for associated git hash, tags with latest, then pushes
 	@docker push ${DOCKER_USERNAME}/${PROJECT_NAME}:latest
 
 # TODO make clean
-clean:
-	# remove created images
+clean: ## remove created images
 	@docker rm $(docker ps --filter status=exited -q)
 	# @docker-compose -p $(PROJECT_NAME)_$(HOST_UID) down --remove-orphans --rmi all 2>/dev/null \
 	# && echo 'Image(s) for "$(PROJECT_NAME):$(HOST_USER)" removed.' \
 	# || echo 'Image(s) for "$(PROJECT_NAME):$(HOST_USER)" already removed.'
 
 .PHONY: prune
-prune:	# clean all that is not actively used
+prune:	## clean all that is not actively used
 	@docker system prune -af
 
 .PHONY: run
