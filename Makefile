@@ -64,6 +64,10 @@ else
 	docker-compose -p $(PROJECT_NAME)_$(HOST_UID) run --rm $(SERVICE_TARGET) sh -c "$(CMD_ARGUMENTS)"
 endif
 ######### DOCKER TASKS ###########
+.PHONY: build-main
+build-main: ## build upstream container
+	@docker build --tag mltooling/ml-workspace:0.13.2 .
+
 .PHONY: build
 build: ## Build the container
 	@docker build --tag ${DOCKER_USERNAME}/${PROJECT_NAME}:${GIT_HASH} .
@@ -109,6 +113,18 @@ run: ## Run container on port configured in `config.env`
 		--shm-size 1024m \
     	--restart always \
 		${DOCKER_USERNAME}/${PROJECT_NAME}:latest
+
+.PHONY: run-main
+run-main: ## Run container from upstream main
+	docker run -d \
+		-p $(PORT):$(PORT) \
+		--env-file=./config.env \
+	    --env AUTHENTICATE_VIA_JUPYTER="${JUPYTER_TOKEN}" \
+		--name $(PROJECT_NAME) \
+		-v "${VOLUME}:/workspace" \
+		--shm-size 1024m \
+    	--restart always \
+		mltooling/ml-workspace:latest
 
 .PHONY: up
 up: build run ## Run container on port configured in `config.env` (Alias to run)
